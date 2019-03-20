@@ -203,7 +203,7 @@ if ($use_auth) {
                         </div>
                         <div class="card fat">
                             <div class="card-body">
-                                <form class="form-signin" action="" method="post" autocomplete="off">
+                                <form class="form-signin" method="post" autocomplete="off">
                                     <div class="form-group">
                                         <label for="fm_usr"><?php echo lng('Username'); ?></label>
                                         <input type="text" class="form-control" id="fm_usr" name="fm_usr" required autofocus>
@@ -928,7 +928,7 @@ if (isset($_GET['upload']) && !FM_READONLY) {
                 </form>
 
                 <div class="upload-url-wrapper card-tabs-container hidden" id="urlUploader">
-                    <form id="js-form-url-upload" class="form-inline" onsubmit="return upload_from_url(this);" method="POST" action="">
+                    <form id="js-form-url-upload" class="form-inline" onsubmit="return upload_from_url(this);" method="POST">
                         <input type="hidden" name="type" value="upload" aria-label="hidden" aria-hidden="true">
                         <input type="url" placeholder="URL" name="uploadurl" required class="form-control" style="width: 80%">
                         <button type="submit" class="btn btn-primary ml-3"><?php echo lng('Upload') ?></button>
@@ -981,7 +981,7 @@ if (isset($_POST['copy']) && !FM_READONLY) {
                 <h6><?php echo lng('Copying') ?></h6>
             </div>
             <div class="card-body">
-                <form action="" method="post">
+                <form method="post">
                     <input type="hidden" name="p" value="<?php echo fm_enc(FM_PATH) ?>">
                     <input type="hidden" name="finish" value="1">
                     <?php
@@ -1066,7 +1066,7 @@ if (isset($_GET['settings']) && !FM_READONLY) {
                 <a href="?p=<?php echo FM_PATH ?>" class="float-right"><i class="fa fa-window-close"></i> <?php echo lng('Cancel')?></a>
             </h6>
             <div class="card-body">
-                <form id="js-settings-form" action="" method="post" data-type="ajax" onsubmit="return save_settings(this)">
+                <form id="js-settings-form" method="post" data-type="ajax" onsubmit="return save_settings(this)">
                     <input type="hidden" name="type" value="settings" aria-label="hidden" aria-hidden="true">
                     <div class="form-group row">
                         <label for="js-language" class="col-sm-3 col-form-label"><?php echo lng('Language') ?></label>
@@ -1173,7 +1173,7 @@ if (isset($_GET['help'])) {
                 </div>
                 <div class="row js-new-pwd hidden mt-2">
                     <div class="col-12">
-                        <form class="form-inline" onsubmit="return new_password_hash(this)" method="POST" action="">
+                        <form class="form-inline" onsubmit="return new_password_hash(this)" method="POST">
                             <input type="hidden" name="type" value="pwdhash" aria-label="hidden" aria-hidden="true">
                             <div class="form-group mb-2">
                                 <label for="staticEmail2">Generate new password hash</label>
@@ -1499,7 +1499,7 @@ if (isset($_GET['chmod']) && !FM_READONLY && !FM_IS_WIN) {
                 <p class="card-text">
                     Full path: <?php echo $file_path ?><br>
                 </p>
-                <form action="" method="post">
+                <form method="post">
                     <input type="hidden" name="p" value="<?php echo fm_enc(FM_PATH) ?>">
                     <input type="hidden" name="chmod" value="<?php echo fm_enc($file) ?>">
 
@@ -1554,7 +1554,7 @@ $num_files = count($files);
 $num_folders = count($folders);
 $all_files_size = 0;
 ?>
-<form action="" method="post" class="pt-3">
+<form method="post" class="pt-3">
     <input type="hidden" name="p" value="<?php echo fm_enc(FM_PATH) ?>">
     <input type="hidden" name="group" value="1">
     <div class="table-responsive">
@@ -2788,7 +2788,7 @@ header("Pragma: no-cache");
 global $lang;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $lang ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -2858,7 +2858,7 @@ global $lang, $sticky_navbar;
 $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -3114,7 +3114,7 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
         }
         @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) { .navbar-collapse .col-xs-6.text-right { padding: 0; } }
         .btn.active.focus,.btn.active:focus,.btn.focus,.btn.focus:active,.btn:active:focus,.btn:focus{outline:0!important;outline-offset:0!important;background-image:none!important;-webkit-box-shadow:none!important;box-shadow:none!important}
-        .lds-facebook{display:none;position:relative;width:64px;height:64px}.lds-facebook div,.lds-facebook.show-me{display:inline-block}.lds-facebook div{position:absolute;left:6px;width:13px;background:#007bff;animation:lds-facebook 1.2s cubic-bezier(0,.5,.5,1) infinite}.lds-facebook div:nth-child(1){left:6px;animation-delay:-.24s}.lds-facebook div:nth-child(2){left:26px;animation-delay:-.12s}.lds-facebook div:nth-child(3){left:45px;animation-delay:0}@keyframes lds-facebook{0%{top:6px;height:51px}100%,50%{top:19px;height:26px}}
+        .lds-facebook{display:none;position:relative;width:64px;height:64px}.lds-facebook div,.lds-facebook.show-me{display:inline-block}.lds-facebook div{position:absolute;left:6px;width:13px;background:#007bff;animation:lds-facebook 1.2s cubic-bezier(0,.5,.5,1) infinite}.lds-facebook div:nth-child(1){left:6px;animation-delay:-.24s}.lds-facebook div:nth-child(2){left:26px;animation-delay:-.12s}.lds-facebook div:nth-child(3){left:45px;animation-delay:0s}@keyframes lds-facebook{0%{top:6px;height:51px}100%,50%{top:19px;height:26px}}
     </style>
 </head>
 <body class="<?php echo $isStickyNavBar; ?>">
